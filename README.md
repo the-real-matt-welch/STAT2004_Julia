@@ -1,4 +1,4 @@
-# The STAT2004 Guide to The Julia Programming Language
+# The STAT2004 Guide to Julia
 STAT2004 doesn't enforce the use of any particular programming language but it
 looks like most of the example code will be in R. This is fine, except for the
 fact that I don't like R very much. Fortunately, Julia (a language that I do 

@@ -181,6 +181,7 @@ R> pnorm(0)
 Or you can call R functions from Julia with R strings:
 ```julia
 julia> R"pnorm(0)"
+RObject{RealSxp}
 [1] 0.5
 ```
 For anything more advanced, check [the documentation](https://juliainterop.github.io/RCall.jl/stable/).

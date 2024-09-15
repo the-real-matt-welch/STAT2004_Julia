@@ -1,9 +1,8 @@
 # The STAT2004 Guide to The Julia Programming Language
-In STAT2004, we are told that we can use any programming language we
-wish for statistical calculations. However, the majority of the
-examples look like they will be in R. This is fine, except for the
-fact that I don't like R very much. Fortunately, Julia (a language
-that I do like very much) offers similar statistical capabilities. If
+STAT2004 doesn't enforce the use of any particular programming language but it
+looks like most of the example code will be in R. This is fine, except for the
+fact that I don't like R very much. Fortunately, Julia (a language that I do 
+like very much) offers packages with similar statistical capabilities. If
 you are like me and also don't like R very much, this guide provides
 some examples of performing basic statistical calculations in Julia
 to help kickstart your escape from R. I am assuming you are already
@@ -36,13 +35,12 @@ data in a table like format, similar to dataframes in R.
 
 ## Sampling from a Distribution
 At this point you could probably just go and read the official
-documentation for each of these packages to figure all of this out
+documentation for each of these packages and figure all of this out yourself
 but sometimes some specific examples can be helpful so here we go.
 
 A common and basic task that we might want to perform is taking a 
-random sample from a theoretical distribution. Let's take 2 10-element
-samples from a standard normal distribution and store them in a
-`DataFrame`.
+random sample from a theoretical distribution. Let's take two 10-element
+samples from a standard normal distribution and store them in a `DataFrame`.
 ```julia
 # create a normal distribution with μ=0 and σ=1
 Z = Normal(0, 1);
@@ -55,8 +53,8 @@ trial2 = rand(Z, 10)
 # we give the columns the same name as the variables
 data = DataFrame("trial1" => trial1, "trial2" => trial2)
 ```
-If you have a look at your DataFrame (with `print` or `show` or 
-similar) it will appear something like this:
+If you have a look at your DataFrame (with `print` or `show` or similar) it
+will appear something like this:
 ```
  Row │ trial1     trial2
      │ Float64    Float64
@@ -78,7 +76,7 @@ CSV.write("NormalData.csv", data)
 ```
 This example just used a normal distribution, but Distributions.jl
 supports a whole bunch of different distributions. Here's the syntax
-for creating a few very common ones.
+for creating a few common ones.
 ```julia
 Normal(μ, σ)
 TDist(v) # v is the degrees of freedom
@@ -140,7 +138,7 @@ a hypothesis test in Julia (very similar process).
 ## More Tricks with Distributions
 So far we have only used our distributions to get random samples and
 calculate quantiles. There are a few other useful things that we can
-do with a distribution object.
+do with a distribution.
 ```julia
 # I'll use a gamma distribution here to change it up a bit
 α = 1.2

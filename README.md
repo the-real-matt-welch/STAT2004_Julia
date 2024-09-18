@@ -96,6 +96,7 @@ We can use Julia to help calculate a 95% confidence interval for $μ$.
 # set the confidence level
 confidence = 0.95
 α = 1 - confidence
+σ = 1
 
 # load the sample data, the DataFrame argument indicates that we will load
 # it directly into a DataFrame
@@ -103,13 +104,12 @@ data = CSV.read("NormalData.csv", DataFrame)
 
 # get some sample statistics (we will just do the CI for trial 1)
 x̄ = mean(data.trial1)
-s = std(data.trial1)
 n = length(data.trial1)
 
 # find the margin of error
 # (Normal() is shorthand for a standard normal distribution)
 z = quantile(Normal(), 1 - α/2)
-me = z*s/√n
+me = z*σ/√n
 
 # create a confidence interval
 lower = x̄ - me
